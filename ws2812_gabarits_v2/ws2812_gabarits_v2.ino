@@ -46,7 +46,7 @@
 //#define DEBUG  // отладочка
 
 bool gReverseDirection = false;
-int turnsIteration = TURNS_SPEED/NUM_LEDS;
+int turnsIteration = TURNS_SPEED / NUM_LEDS;
 CRGB leds_left[NUM_LEDS];
 CRGB leds_right[NUM_LEDS];
 
@@ -364,8 +364,10 @@ void loop()
     }//if right turn
   }//if left turn
   else {
-    //all_black(); 
-    state = 1; // иначе огни
+    if (state != 1) {
+      all_black();
+      state = 1; // иначе огни
+    }
   }
 
   // выбор состояния
